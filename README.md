@@ -30,7 +30,7 @@ The simulation compared a baseline infrastructure (100% Enterprise Servers) agai
 | **Utilization** | **Balanced** | The load balancer successfully distributed tasks to ARM nodes. |
 | **Efficiency** | **High** | Validated potential for significant energy savings (Green Computing). |
 
-![Latency Comparison Graph](assets/figura2_latencia.png)
+![Latency Comparison Graph](2e7dea2e144d9a0903a9f9576565f21a75f78e1c.png)
 > *Figure 1: Latency comparison showing minimal degradation when introducing ARM nodes.*
 
 ---
