@@ -1,14 +1,11 @@
-# WSCAD - Registry
-
-This repository includes the datasets and algorithms to perform the experiments made in the paper "Dynamic Provisioning of Container Registries in Edge Computing Infrastructures" submitted to the *XXIV Simpósio em Sistemas Computacionais de Alto Desempenho* (WSCAD). 
-
-## Configuring the environment
-
 # ☁️ Heterogeneous Edge Provisioning Benchmark
+
+This repository contains the **experimental framework and datasets** from a **research-based engineering study** that evaluates **container registry placement in heterogeneous edge computing networks**.
+
+The project focuses on how **low-power ARM nodes (Raspberry Pi 5)** can be integrated into **containerized edge platforms** without significantly impacting **application latency**, enabling **lower-cost and more energy-efficient edge infrastructures**.
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
 [![Edge Computing](https://img.shields.io/badge/Focus-Edge%20Computing-green?logo=serverless)](https://en.wikipedia.org/wiki/Edge_computing)
-[![Paper](https://img.shields.io/badge/Academic-WSCAD%202024-red?logo=googlescholar)](LINK_DO_PDF_SE_TIVER)
 
 ## 📌 Project Overview
 
@@ -16,8 +13,34 @@ This project simulates and analyzes **container provisioning strategies** in Mob
 
 We validated that integrating low-cost, energy-efficient ARM nodes into the edge mesh **does not compromise service latency**, offering a viable path for cost reduction in large-scale ISP deployments.
 
-> **Research Context:** Originally published as *"Dynamic Register Distribution for Mobile Edge Computing"* at WSCAD Symposium.
+## What problem does this solve?
 
+In large edge platforms, **container provisioning time** is a major bottleneck:
+- Edge nodes need to pull images before applications can start
+- Centralized registries create bandwidth and latency bottlenecks
+- High-capacity nodes are expensive and energy-intensive
+
+This project investigates whether **smaller, cheaper and more energy-efficient devices** can act as edge registry nodes **without breaking latency requirements**.
+
+---
+
+## What we did
+
+We reproduced and extended a prior large-scale edge simulation using **EdgeSimPy**, introducing **Raspberry Pi 5 nodes** into the mesh.
+
+The simulation included:
+- 24 geographically distributed edge servers  
+- 36 mobile users  
+- Multiple container provisioning strategies:
+  - Centralized Registry
+  - Peer-to-Peer
+  - Community-based
+  - Dynamic strategy
+
+We replaced 25% of the original servers with **low-power Raspberry Pi 5 nodes** (4 cores, 8GB RAM) and measured:
+- User-perceived latency
+- CPU, memory and disk utilization per node
+- Impact across provisioning strategies
 ---
 
 ## 📊 Key Results (Data Analysis)
@@ -30,8 +53,39 @@ The simulation compared a baseline infrastructure (100% Enterprise Servers) agai
 | **Utilization** | **Balanced** | The load balancer successfully distributed tasks to ARM nodes. |
 | **Efficiency** | **High** | Validated potential for significant energy savings (Green Computing). |
 
-![Latency Comparison Graph](2e7dea2e144d9a0903a9f9576565f21a75f78e1c.png)
-> *Figure 1: Latency comparison showing minimal degradation when introducing ARM nodes.*
+- **No statistically significant increase in application latency**
+- Raspberry Pi nodes were **actively used** by the system
+- Even under Peer-to-Peer strategies, low-power nodes participated in container distribution
+- This suggests that **heterogeneous, low-energy edge meshes are viable**
+
+> **Conclusion:** This supports the idea that **edge platforms can reduce cost and energy consumption** without sacrificing performance.
+
+---
+
+## Why this matters
+
+This has direct implications for:
+- **Edge computing platforms**
+- **CDNs and microservice delivery**
+- **IoT and mobile networks**
+- **Cloud cost optimization**
+- **Sustainable computing**
+
+It demonstrates that **capacity-aware, dynamic registry placement** enables:
+> *“More nodes, less power, same latency.”*
+
+
+## How this connects to real systems
+
+The same principles apply to:
+- Kubernetes image registries
+- CDN caching layers
+- Edge clusters
+- Service meshes
+- Geo-distributed microservices
+
+This project models how **placement and replication strategies** affect real-world SLA and infrastructure cost.
+
 
 ---
 
